@@ -8,7 +8,7 @@ if not API_KEY:
     raise ValueError("No se encontró API_KEY")
 
 # 🔹 URL pública del Excel
-EXCEL_URL = "https://drive.google.com/uc?export=download&id=1rtZeAZYrUCNQEa4JGJ4TQsaYnCmtNhZb"
+EXCEL_URL = "https://drive.google.com/uc?export=download&id=1HcrzQQxewwFZJUycSbMGBM9KE"
 df = pd.read_excel(EXCEL_URL, engine="openpyxl")
 
 # ⚡ Evitar duplicados
