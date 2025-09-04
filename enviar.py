@@ -3,13 +3,13 @@ import requests
 import time
 import os
 
-# 🔑 Clave desde variable de entorno (Railway) o valor por defecto
+# 🔑 API Key desde Railway (variable de entorno)
 API_KEY = os.getenv("API_KEY", "TU_API_KEY_AQUI")
 
-# 🚀 Solicitar el archivo Excel al usuario
-EXCEL_FILE = input("📂 Ingresa el nombre del archivo Excel (ej: mensajes.xlsx): ")
+# 📂 Nombre fijo del archivo Excel
+EXCEL_FILE = "mensajes.xlsx"
 
-# Cargar Excel
+# Leer Excel
 df = pd.read_excel(EXCEL_FILE)
 
 # Eliminar duplicados basados en el número
@@ -25,12 +25,11 @@ for index, row in df.iterrows():
     mensaje = str(row["mensaje"])
 
     payload = {"to": numero, "text": mensaje}
-
     try:
         response = requests.post(url, json=payload, headers=headers)
         print(f"✅ Enviado a {numero}: {response.text}")
     except Exception as e:
         print(f"❌ Error con {numero}: {e}")
 
-    # ⏳ Espera de 60 segundos (plan gratuito)
+    # ⏳ Espera de 60 segundos por restricción del plan gratuito
     time.sleep(60)
