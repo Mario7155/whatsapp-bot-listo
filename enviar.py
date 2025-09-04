@@ -8,8 +8,8 @@ if not API_KEY:
     raise ValueError("No se encontró API_KEY")
 
 # 🔹 URL pública del Excel
-EXCEL_URL = "https://drive.google.com/uc?export=download&id=mensajes.xlsx"
-df = pd.read_excel(EXCEL_URL)
+EXCEL_URL = "https://drive.google.com/uc?export=download&id=1rtZeAZYrUCNQEa4JGJ4TQsaYnCmtNhZb"
+df = pd.read_excel(EXCEL_URL, engine="openpyxl")
 
 # ⚡ Evitar duplicados
 df = df.drop_duplicates(subset=["numero"])
