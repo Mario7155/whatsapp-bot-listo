@@ -8,7 +8,7 @@ if not API_KEY:
     raise ValueError("No se encontró API_KEY")
 
 # 🔹 URL pública del Excel
-EXCEL_URL = "https://docs.google.com/spreadsheets/d/1HcrzQQxewwFZJUycSbMGBM9KE-sbvhyA/edit?usp=sharing&ouid=110819970830940006842&rtpof=true&sd=true"
+EXCEL_URL = "https://drive.google.com/uc?export=download&id=mensajes.xlsx"
 df = pd.read_excel(EXCEL_URL)
 
 # ⚡ Evitar duplicados
